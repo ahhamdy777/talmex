@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TALMEX – Date your day · تالمكس</title>
+<meta name="description" content="TALMEX Food Industries – nutritious foods made from Egyptian dates in Abo Shalan, El-Burullus, Kafr El-Sheikh: NUTRIVA instant date drinks, NUTRA date spreads, VELORA date chocolate and SEMORA fresh date makhtoum.">
+<meta property="og:title" content="TALMEX – Date your day">
+<meta property="og:image" content="assets/hero-family.webp">
+<meta name="theme-color" content="#FAF7F0">
+<link rel="icon" href="assets/icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="TALMEX">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Barlow+Condensed:wght@500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Tajawal:wght@400;500;700;800&display=swap">
+<style>
+:root{
+  --bg:#FAF7F0;--paper:#FFFFFF;--ink:#2A1209;--muted:#6B5446;
+  --sage:#9AAE8E;--sage-pale:#E4EADC;--sage-deep:#4F6648;--band:#3F5439;--band-ink:#F6F1E6;
+  --gold:#B8955A;--gold-deep:#8C6A32;--gold-soft:#E8D7AE;--line:rgba(184,149,90,.42);
+  --wa:#1F8A4C;--shadow:0 18px 40px -26px rgba(40,15,0,.45);
+  --f-display:"Playfair Display",Georgia,serif;--f-ar-display:"Aref Ruqaa","Tajawal",serif;
+  --f-body:"Tajawal","Segoe UI",system-ui,sans-serif;--f-label:"Barlow Condensed","Arial Narrow",sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.7;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+html[data-lang=ar] .en,html[data-lang=en] .ar{display:none!important}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.label{font-family:var(--f-label);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:13px;color:var(--gold-deep)}
+html[data-lang=ar] .label{font-family:var(--f-body);letter-spacing:0;font-weight:800;font-size:14px}
+h1,h2,h3,h4{margin:0;line-height:1.2}
+.title{font-family:var(--f-display);font-weight:900;font-size:clamp(30px,4vw,46px);margin:.25em 0 .4em}
+html[data-lang=ar] .title{font-family:var(--f-body);font-weight:800}
+.rule{display:flex;align-items:center;gap:12px;margin:14px 0 26px;color:var(--gold)}
+.rule:before,.rule:after{content:"";height:1px;width:56px;background:var(--gold)}
+.rule span{font-size:12px}
+.muted{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:12px 22px;font-weight:800;text-decoration:none;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s}
+.btn svg{width:18px;height:18px}
+.btn-dark{background:var(--ink);color:#FAF1E2}
+.btn-dark:hover{background:var(--gold-deep)}
+.btn-line{border-color:var(--gold);color:var(--ink);background:var(--paper)}
+.btn-line:hover{background:var(--gold-soft)}
+.btn-wa{background:var(--wa);color:#fff}
+
+/* header + tabs */
+header{position:sticky;top:0;z-index:20;background:rgba(250,247,240,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:16px;min-height:74px}
+.brand img{height:50px;width:auto}
+.tabs{display:flex;gap:2px;margin-inline-start:auto}
+.tabs a{position:relative;text-decoration:none;color:var(--muted);font-weight:700;font-size:15px;padding:10px 12px;border-radius:10px;white-space:nowrap}
+.tabs a:hover{color:var(--ink);background:var(--sage-pale)}
+.tabs a[aria-current=page]{color:var(--ink)}
+.tabs a[aria-current=page]:after{content:"";position:absolute;inset-inline:12px;bottom:3px;height:2px;background:var(--gold)}
+.tools{display:flex;gap:8px;align-items:center}
+.pill{height:42px;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:0 14px;font-weight:800;display:inline-flex;align-items:center;gap:6px;position:relative}
+.pill svg{width:19px;height:19px}
+.badge{position:absolute;top:-5px;inset-inline-end:-5px;min-width:20px;height:20px;border-radius:10px;background:var(--gold);color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center;padding:0 5px}
+.pill.ins{background:var(--sage-deep);border-color:var(--sage-deep);color:#F6F1E6}
+.pill.ins:hover{background:var(--band)}
+@media (max-width:620px){.pill.ins span{display:none!important}.pill.ins{padding:0 12px}}
+.menu{display:none}
+@media (max-width:1060px){
+  .tabs{position:fixed;inset:74px 0 auto 0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 16px 16px;display:none;box-shadow:var(--shadow)}
+  .tabs.on{display:flex}.tabs a{padding:12px}.menu{display:inline-flex}.tools{margin-inline-start:auto}
+}
+
+/* views */
+.view{display:none;animation:fade .45s ease both}
+.view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){.view{animation:none}}
+.sec{padding:72px 0}
+.band{background:var(--band);color:var(--band-ink)}
+.band .label{color:var(--gold-soft)}
+.band .muted{color:#D8D2C2}
+.pagehead{padding:56px 0 10px;text-align:center}
+.pagehead .lead{max-width:720px;margin:0 auto}
+.rule.c{justify-content:center}
+
+/* home */
+.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:46px;align-items:center;padding:56px 0 64px}
+.hero h1{font-family:var(--f-display);font-weight:900;font-size:clamp(40px,6vw,72px);line-height:1.02;margin:.2em 0 .25em}
+html[data-lang=ar] .hero h1{font-family:var(--f-ar-display);font-weight:700;line-height:1.3}
+.hero .sub{font-family:var(--f-display);font-style:italic;color:var(--gold-deep);font-size:22px}
+html[data-lang=ar] .hero .sub{font-family:var(--f-body);font-style:normal;font-weight:700}
+.hero p{color:var(--muted);font-size:18px;max-width:52ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.arch{position:relative;background:var(--sage-pale);border-radius:280px 280px 26px 26px;padding:44px 22px 22px;border:1px solid var(--line)}
+.arch:before{content:"";position:absolute;inset:12px;border-radius:270px 270px 18px 18px;border:1px solid var(--gold);opacity:.5;pointer-events:none}
+.arch img{position:relative;width:100%}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
+.stats div{padding:22px 10px;text-align:center;border-inline-end:1px solid var(--line)}
+.stats div:last-child{border:0}
+.stats b{display:block;font-family:var(--f-display);font-size:34px;color:var(--gold-deep);line-height:1.1}
+.stats div > span{font-size:14px;color:var(--muted)}
+.bcards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.bcard{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.bcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.bcard .im{aspect-ratio:4/3;background:var(--sage-pale);display:grid;place-items:center;padding:16px}
+.bcard .im img{max-height:100%;width:auto;filter:drop-shadow(0 12px 14px rgba(40,15,0,.25))}
+.bcard .tx{padding:16px 18px 20px}
+.bcard h3{font-family:var(--f-display);font-size:24px;letter-spacing:.04em}
+.bcard p{margin:.3em 0 0;font-size:15px;color:var(--muted);line-height:1.5}
+.new{display:inline-block;background:var(--gold);color:#fff;font-size:11px;font-weight:800;padding:2px 9px;border-radius:999px;letter-spacing:.06em;vertical-align:middle;margin-inline-start:6px}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.feature{min-width:0}.feature > *{min-width:0}
+@media (max-width:960px){.hero,.feature{grid-template-columns:1fr}.bcards{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-inline-end:0}.stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:560px){.bcards{grid-template-columns:1fr}}
+
+/* story */
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.two p{margin:0 0 1em}
+.frame{background:var(--sage-pale);border-radius:26px;padding:28px;border:1px solid var(--line)}
+.nutri{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:28px}
+.nutri div{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 10px;text-align:center;font-weight:800}
+.nutri i{display:block;width:34px;height:34px;margin:0 auto 8px;border-radius:50%;background:var(--sage-pale);border:1px solid var(--sage)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.fact{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px}
+.fact b{font-family:var(--f-display);font-size:40px;color:var(--gold-deep);line-height:1}
+.fact p{margin:.4em 0 0;color:var(--muted);font-size:15px}
+.fact small{color:var(--muted);opacity:.8;font-size:12px}
+.vm{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.vm article{background:rgba(255,255,255,.06);border:1px solid rgba(232,215,174,.35);border-radius:20px;padding:26px}
+.vm h3{color:var(--gold-soft);font-size:21px;margin-bottom:.5em}
+.vm p{margin:0}
+.vm ul{margin:0;padding:0;list-style:none}
+.vm li{padding:4px 0;padding-inline-start:20px;position:relative}
+.vm li:before{content:"";position:absolute;inset-inline-start:0;top:14px;width:8px;height:1px;background:var(--gold-soft)}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--gold);margin-top:34px}
+.road > div{padding:22px 18px 0;position:relative}
+.road > div:before{content:"";position:absolute;top:-8px;inset-inline-start:18px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--gold)}
+.road .yr{font-family:var(--f-label);font-weight:600;letter-spacing:.12em;color:var(--gold-deep)}
+.road h4{font-size:18px;margin:.2em 0 .5em}
+.road ul{margin:0;padding:0;list-style:none;font-size:15px;color:var(--muted)}
+.road li{padding:3px 0}
+.aud{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+.aud article{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px;border-top:4px solid var(--sage-deep)}
+.aud h3{font-size:19px;margin-bottom:.4em}
+.aud p{margin:0 0 .8em;color:var(--muted);font-size:15px}
+.aud .t{font-family:var(--f-label);letter-spacing:.14em;font-weight:600;font-size:13px;color:var(--gold-deep)}
+@media (max-width:960px){.two,.vm,.aud{grid-template-columns:1fr}.nutri{grid-template-columns:repeat(3,1fr)}.road{grid-template-columns:1fr 1fr;row-gap:26px}}
+
+/* brands */
+.brandrow{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:56px 0;border-bottom:1px solid var(--line)}
+.brandrow:last-child{border-bottom:0}
+.brandrow:nth-child(even) .bt{order:2}
+.brandrow .bi{background:var(--sage-pale);border-radius:26px;padding:26px;border:1px solid var(--line);display:grid;place-items:center;min-height:330px}
+.brandrow .bi img{max-height:330px;width:auto;filter:drop-shadow(0 16px 18px rgba(40,15,0,.25))}
+.bname{font-family:var(--f-display);font-weight:900;font-size:clamp(40px,5vw,58px);letter-spacing:.04em;line-height:1}
+.bname.ar-n{font-family:var(--f-ar-display);letter-spacing:0}
+.bsub{font-weight:800;color:var(--gold-deep);margin:.4em 0 .7em;font-size:18px}
+.flv{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px}
+.flv button{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px}
+.flv button:hover{background:var(--gold-soft)}
+@media (max-width:960px){.brandrow{grid-template-columns:1fr}.brandrow:nth-child(even) .bt{order:0}}
+
+/* shop */
+.ftabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0 26px}
+.ftab{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 18px;font-weight:800;font-family:var(--f-label);letter-spacing:.1em;font-size:15px}
+.ftab[aria-pressed=true]{background:var(--ink);color:#FAF1E2;border-color:var(--ink)}
+.howto{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
+.howto div{display:flex;gap:12px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:15px}
+.howto b{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold-deep);font-family:var(--f-display)}
+@media (max-width:800px){.howto{grid-template-columns:1fr}}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card .open{all:unset;cursor:pointer;display:flex;flex-direction:column;flex:1}
+.card .pic{aspect-ratio:1;background:var(--sage-pale);display:grid;place-items:center;padding:18px;position:relative}
+.card .pic img{max-height:100%;width:auto;filter:drop-shadow(0 12px 14px rgba(40,15,0,.25))}
+.card .pic .new{position:absolute;top:12px;inset-inline-start:12px;margin:0}
+.card .body{padding:14px 16px 4px}
+.bn{font-family:var(--f-label);font-weight:600;letter-spacing:.18em;font-size:12px;color:var(--gold-deep)}
+.pn{font-weight:800;font-size:16px;line-height:1.35;margin:.15em 0}
+.pd{font-size:14px;color:var(--muted);line-height:1.5}
+.more{font-size:13px;font-weight:800;color:var(--sage-deep);margin-top:8px}
+.foot2{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 16px 16px}
+.price{font-weight:800;font-size:17px;font-variant-numeric:tabular-nums}
+.price small{font-weight:500;color:var(--muted);font-size:12px}
+.add{border:0;background:var(--ink);color:#FAF1E2;border-radius:999px;padding:8px 14px;font-weight:800;font-size:14px;display:flex;gap:6px;align-items:center}
+.add:hover{background:var(--gold-deep)}
+.add svg{width:16px;height:16px}
+
+/* support */
+.proj{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:28px}
+.proj img{width:120px;height:120px;border-radius:50%;background:#fff;border:1px solid var(--line)}
+.proj .pt{font-family:var(--f-display);font-style:italic;font-size:18px;line-height:1.45}
+html[data-lang=ar] .proj .pt{font-family:var(--f-body);font-style:normal;font-weight:700}
+.proj .pm{margin-top:10px;font-size:14px;color:var(--muted)}
+.journey{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:10px}
+.journey > div{background:rgba(255,255,255,.06);border:1px solid rgba(232,215,174,.3);border-radius:18px;padding:20px}
+.journey .n{font-family:var(--f-display);color:var(--gold-soft);font-size:26px;line-height:1}
+.journey h4{margin:.4em 0 .3em;font-size:17px}
+.journey p{margin:0;font-size:14px;color:#D8D2C2}
+.partners{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.partners div{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px}
+.partners b{display:block}
+.partners span{font-size:14px;color:var(--muted)}
+@media (max-width:960px){.proj{grid-template-columns:1fr;text-align:center}.proj img{margin:auto}.journey{grid-template-columns:1fr 1fr}.partners{grid-template-columns:1fr 1fr}}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.mem{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px 14px;text-align:center}
+.av{width:78px;height:78px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;background:var(--sage-pale);border:1px solid var(--gold);font-family:var(--f-display);font-weight:900;font-size:26px;color:var(--sage-deep)}
+.role{font-size:13px;color:var(--gold-deep);font-weight:800}
+.nm{font-weight:800;line-height:1.35}
+@media (max-width:960px){.team{grid-template-columns:1fr 1fr}}
+
+/* contact */
+.cgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:start}
+.cc{display:flex;align-items:center;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px 18px;margin-bottom:12px}
+.cc .k{font-size:13px;color:var(--muted)}
+.cc .v{font-weight:800;font-size:18px;direction:ltr;unicode-bidi:isolate}
+.copy{margin-inline-start:auto;border:1px solid var(--line);background:none;border-radius:999px;padding:5px 12px;font-weight:700;font-size:13px}
+.addr{background:var(--sage-pale);border:1px solid var(--line);border-radius:22px;padding:26px}
+.addr h3{font-size:19px;margin-bottom:.4em}
+.chan{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chan span{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:14px}
+@media (max-width:900px){.cgrid{grid-template-columns:1fr}}
+
+#appbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:25;display:none;align-items:center;gap:12px;background:var(--ink);color:#F6F1E6;border-radius:18px;padding:12px 14px;box-shadow:0 18px 40px rgba(0,0,0,.3)}
+#appbar.on{display:flex}
+#appbar img{width:40px;height:40px;border-radius:10px;background:#fff;flex:none}
+#appbar .t{flex:1;font-size:14px;line-height:1.35}
+#appbar .t b{display:block}
+#appbar button{border-radius:999px;padding:9px 16px;font-weight:800;border:0;background:var(--gold);color:var(--ink)}
+#appbar .close{background:none;color:#C9BBA6;font-size:20px;padding:0 6px}
+#iosHow{position:fixed;inset:0;z-index:40;display:none;align-items:flex-end;justify-content:center;background:rgba(42,18,9,.5)}
+#iosHow.on{display:flex}
+#iosHow .sheet{background:var(--bg);width:min(460px,100%);border-radius:22px 22px 0 0;padding:22px}
+#iosHow ol{padding-inline-start:20px;margin:10px 0 0}
+#iosHow li{padding:4px 0}
+footer{border-top:1px solid var(--line);padding:26px 0;font-size:14px;color:var(--muted);text-align:center;margin-top:40px}
+footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-bottom:10px}
+footer nav a{text-decoration:none;font-weight:700}
+
+/* dialog + drawer */
+dialog{border:0;border-radius:24px;padding:0;max-width:860px;width:calc(100% - 28px);background:var(--bg);color:var(--ink);box-shadow:0 40px 90px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(42,18,9,.55)}
+.pdw{display:grid;grid-template-columns:1fr 1.1fr}
+.pdw .pimg{background:var(--sage-pale);display:grid;place-items:center;padding:28px}
+.pdw .pimg img{max-height:360px;width:auto;filter:drop-shadow(0 16px 18px rgba(40,15,0,.3))}
+.pdw .ptx{padding:28px}
+.pdw h3{font-size:24px;margin:.2em 0}
+#pdAr{color:var(--muted);font-weight:700}
+dl.meta{display:grid;gap:8px;margin:16px 0}
+dl.meta div{display:grid;grid-template-columns:110px 1fr;gap:10px;font-size:14px}
+dl.meta dt{font-weight:800;color:var(--sage-deep)}
+dl.meta dd{margin:0}
+.sizes{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.sizes button{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 14px;font-weight:800}
+.sizes button[aria-pressed=true]{background:var(--ink);color:#FAF1E2;border-color:var(--ink)}
+.qrow{display:flex;align-items:center;gap:14px;margin-top:12px;flex-wrap:wrap}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
+.qty button{border:0;background:none;width:34px;height:34px;font-size:18px}
+.qty output{min-width:26px;text-align:center;font-weight:800}
+#pdPrice{font-weight:800;font-size:22px}
+.x{position:absolute;top:10px;inset-inline-end:10px;width:38px;height:38px;border-radius:50%;border:0;background:rgba(0,0,0,.06);font-size:22px;z-index:2}
+@media (max-width:760px){.pdw{grid-template-columns:1fr}.pdw .pimg img{max-height:220px}}
+#shade{position:fixed;inset:0;background:rgba(42,18,9,.45);z-index:30}
+#drawer{position:fixed;top:0;bottom:0;inset-inline-end:0;width:min(420px,100%);background:var(--bg);z-index:31;transform:translateX(105%);transition:transform .35s ease;display:flex;flex-direction:column;visibility:hidden}
+[dir=rtl] #drawer{transform:translateX(-105%)}
+#drawer.on{transform:none;visibility:visible;box-shadow:-20px 0 50px rgba(0,0,0,.2)}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
+.dh h3{font-family:var(--f-display);font-size:22px}
+html[data-lang=ar] .dh h3{font-family:var(--f-body)}
+.dh button{border:0;background:none;font-size:26px}
+#lines{flex:1;overflow:auto;padding:10px 18px}
+.line{display:grid;grid-template-columns:54px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.line img{width:54px;height:54px;object-fit:contain;background:var(--sage-pale);border-radius:10px}
+.line .t{font-weight:800;font-size:14px;line-height:1.3}
+.line .s{font-size:13px;color:var(--muted)}
+.rm{border:0;background:none;color:#a3352a;font-size:13px;padding:0;font-weight:700}
+.empty{text-align:center;color:var(--muted);padding:40px 10px}
+.df{padding:16px 18px;border-top:1px solid var(--line);background:var(--paper)}
+.tot{display:flex;justify-content:space-between;font-weight:800;font-size:18px;margin-bottom:10px}
+.df input,.df textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;margin-bottom:8px;background:var(--bg)}
+.send{width:100%;justify-content:center}
+.send[aria-disabled=true]{opacity:.45;pointer-events:none}
+.df small{display:block;color:var(--muted);margin-top:8px;font-size:13px}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#FAF1E2;padding:10px 20px;border-radius:999px;font-weight:700;z-index:40}
+.wa-fab{position:fixed;bottom:20px;inset-inline-start:20px;z-index:15;width:56px;height:56px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 24px rgba(31,138,76,.4)}
+.wa-fab svg{width:28px;height:28px;fill:#fff}
+
+.view{display:block;animation:none}
+section.view{scroll-margin-top:80px}
+#prog{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--sage-deep))}
+html[dir=rtl] #prog{left:auto;right:0}
+.label .num{font-family:var(--f-display);font-weight:900;color:var(--gold);letter-spacing:0;margin-inline-end:8px;font-size:15px}
+.supchip{display:inline-flex;align-items:center;gap:12px;margin-top:26px;padding:6px 16px 6px 6px;border:1px solid var(--line);border-radius:999px;background:var(--paper);text-decoration:none;max-width:100%}
+html[dir=rtl] .supchip{padding:6px 6px 6px 16px}
+.supchip img{width:44px;height:44px;border-radius:50%;flex:none}
+.supchip > span{font-size:13px;font-weight:700;line-height:1.3;color:var(--ink)}
+.supchip small{display:block;font-weight:600;color:var(--muted);font-size:11px;letter-spacing:.04em}
+.supchip:hover{border-color:var(--gold)}
+#v-story,#v-shop,#v-team{background:var(--bg)}
+#v-brands{background:linear-gradient(180deg,var(--bg),#F1EDE2)}
+#v-support{background:#F1EDE2}
+#v-contact{background:var(--bg)}
+.pagehead{padding-top:84px}
+.bswitch{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 10px}
+.bswitch button{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:var(--paper);border-radius:18px;padding:10px 14px;font-family:var(--f-display);font-weight:900;letter-spacing:.06em;font-size:18px;position:relative;overflow:hidden;transition:border-color .2s,background .2s}
+.bswitch button img{width:46px;height:46px;object-fit:contain}
+.bswitch button:after{content:"";position:absolute;inset:auto 14px 0 14px;height:3px;background:var(--gold);transform:scaleX(0);transition:transform .35s}
+.bswitch button[aria-selected=true]{background:var(--sage-pale);border-color:var(--gold)}
+.bswitch button[aria-selected=true]:after{transform:scaleX(1)}
+.brandrow{border-bottom:0;padding:34px 0 64px}
+.brandrow:not([hidden]){animation:bin .5s ease both}
+.brandrow:not([hidden]) .bi img{animation:bimg .6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes bin{from{opacity:0}}
+@keyframes bimg{from{opacity:0;transform:translateY(18px) scale(.97)}}
+.brandrow:nth-child(even) .bt{order:0}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.brandrow,.brandrow .bi img{animation:none!important}}
+@media (max-width:760px){.bswitch{grid-template-columns:1fr 1fr}.bswitch button{font-size:15px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></symbol>
+  <symbol id="i-get" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</svg>
+
+<header>
+  <div id="prog"></div>
+  <div class="wrap bar">
+    <a class="brand" href="#home" data-tab="home"><img src="assets/talmex-logo.webp" alt="TALMEX"></a>
+    <nav class="tabs" id="tabs" aria-label="Main">
+      <a href="#home" data-tab="home"><span class="en">Home</span><span class="ar">الرئيسية</span></a>
+      <a href="#story" data-tab="story"><span class="en">Our Story</span><span class="ar">قصتنا</span></a>
+      <a href="#brands" data-tab="brands"><span class="en">Our Brands</span><span class="ar">علاماتنا</span></a>
+      <a href="#shop" data-tab="shop"><span class="en">Shop</span><span class="ar">المتجر</span></a>
+      <a href="#support" data-tab="support"><span class="en">Partners &amp; Support</span><span class="ar">الشركاء والدعم</span></a>
+      <a href="#team" data-tab="team"><span class="en">Team</span><span class="ar">فريقنا</span></a>
+      <a href="#contact" data-tab="contact"><span class="en">Contact</span><span class="ar">تواصل معنا</span></a>
+    </nav>
+    <div class="tools">
+      <button class="pill ins" id="installBtn" type="button" hidden><svg><use href="#i-get"/></svg><span class="en">Install app</span><span class="ar">تثبيت التطبيق</span></button>
+      <button class="pill" id="langBtn" type="button"><span class="en">العربية</span><span class="ar">English</span></button>
+      <button class="pill" id="cartBtn" type="button" aria-label="Cart"><svg><use href="#i-cart"/></svg><span class="badge" id="cartN" hidden>0</span></button>
+      <button class="pill menu" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HOME ================= -->
+<section class="view" id="v-home">
+  <div class="wrap hero">
+    <div>
+      <div class="label"><span class="en">Tomorrow's health starts today</span><span class="ar">صحة الغد تبدأ اليوم</span></div>
+      <h1><span class="en">Date your day.</span><span class="ar">يومك أطيب بالتمر</span></h1>
+      <div class="sub"><span class="en">From the palms of Abo Shalan to your table</span><span class="ar">من نخيل أبو شعلان إلى مائدتك</span></div>
+      <p><span class="en">TALMEX is an Egyptian food company from Abo Shalan Village, Kafr El-Sheikh. We turn Egyptian dates into modern, nutritious foods for the whole family: NUTRIVA instant drinks, NUTRA spreads, VELORA chocolate and SEMORA makhtoum.</span><span class="ar">تالمكس شركة مصرية للصناعات الغذائية من قرية أبو شعلان بمحافظة كفر الشيخ، تحوّل التمور المصرية إلى منتجات غذائية عصرية ومغذية لجميع أفراد الأسرة: مشروب نيوتريفا، وسبريد نوترا، وشوكولاتة فيلورا، ومختوم سيمورا.</span></p>
+      <div class="cta">
+        <a class="btn btn-dark" href="#shop" data-tab="shop"><svg><use href="#i-cart"/></svg><span class="en">Shop now</span><span class="ar">تسوّق الآن</span></a>
+        <a class="btn btn-line" href="#brands" data-tab="brands"><span class="en">Explore our brands</span><span class="ar">تعرّف على علاماتنا</span></a>
+      </div>
+      <a class="supchip" href="#support" data-tab="support"><img src="assets/project-logo-sm.webp" alt=""><span><small><span class="en">With the support of</span><span class="ar">بدعم من</span></small><span class="en">the Climate-Smart Agriculture &amp; Agrobiodiversity Project</span><span class="ar">مشروع الزراعة الذكية مناخياً والتنوع البيولوجي الزراعي</span></span></a>
+    </div>
+    <div class="arch"><img src="assets/hero-family.webp" alt="TALMEX products"></div>
+  </div>
+  <div class="stats">
+    <div><b><span class="en">4</span><span class="ar">٤</span></b><span><span class="en">brands</span><span class="ar">علامات تجارية</span></span></div>
+    <div><b id="statN">17</b><span><span class="en">products &amp; flavours</span><span class="ar">منتجاً ونكهة</span></span></div>
+    <div><b><span class="en">12</span><span class="ar">١٢</span></b><span><span class="en">months shelf life</span><span class="ar">شهراً صلاحية</span></span></div>
+    <div><b><span class="en">100%</span><span class="ar">١٠٠٪</span></b><span><span class="en">made in Egypt</span><span class="ar">صناعة مصرية</span></span></div>
+  </div>
+</section>
+
+<!-- ================= STORY ================= -->
+<section class="view" id="v-story">
+  <div class="wrap pagehead">
+    <div class="label"><b class="num">01</b> <span class="en">Our story</span><span class="ar">قصتنا</span></div>
+    <h2 class="title"><span class="en">The Talmex story</span><span class="ar">قصة تالمكس</span></h2>
+    <div class="rule c"><span>✦</span></div>
+  </div>
+  <div class="wrap two" style="padding-bottom:40px">
+    <div>
+      <p><span class="en">Founded in Abo Shalan Village, El-Burullus, Kafr El-Sheikh, Talmex is built on a clear conviction: Egyptian dates, among the most nutrient-rich natural foods, deserve a modern, convenient and healthy place in the everyday diet.</span><span class="ar">انطلقت تالمكس من قرية أبو شعلان بمركز البرلس في محافظة كفر الشيخ، انطلاقاً من قناعة بأن التمر المصري، وهو من أغنى الأغذية الطبيعية قيمةً، جدير بأن يكون جزءاً من النظام الغذائي اليومي في صورة عصرية وصحية وسهلة الاستخدام.</span></p>
+      <p><span class="en">Our team of agricultural engineers specialised in food processing transforms dates into convenient products for the whole family that offer a healthier alternative to conventional options.</span><span class="ar">ويعمل فريق من المهندسين الزراعيين المتخصصين في الصناعات الغذائية على تحويل التمور إلى منتجات سريعة التحضير تلائم جميع أفراد الأسرة، وتمثّل بديلاً صحياً للمنتجات التقليدية.</span></p>
+      <p><span class="en">We aim to contribute to reducing malnutrition and anaemia through innovative flavours and an Egyptian brand built to compete in local and international markets.</span><span class="ar">ونسعى إلى الإسهام في الحد من سوء التغذية وفقر الدم، عبر نكهات مبتكرة وهوية مصرية قادرة على المنافسة في الأسواق المحلية والدولية.</span></p>
+      <div class="facts">
+        <div class="fact"><b><span class="en">#1</span><span class="ar">الأولى</span></b><p><span class="en">Egypt is the world's largest date producer.</span><span class="ar">مصر الأولى عالمياً في إنتاج التمور.</span></p></div>
+        <div class="fact"><b><span class="en">40%</span><span class="ar">٤٠٪</span></b><p><span class="en">of children aged 6–59 months worldwide are anaemic, and 37% of pregnant women.</span><span class="ar">من الأطفال بين ٦ و٥٩ شهراً حول العالم يعانون من فقر الدم، وكذلك ٣٧٪ من السيدات الحوامل.</span></p><small><span class="en">Source: World Health Organization</span><span class="ar">المصدر: منظمة الصحة العالمية</span></small></div>
+      </div>
+    </div>
+    <div class="frame"><img src="assets/dates.webp" alt="Egyptian dates">
+      <div class="nutri">
+        <div><i></i><span class="en">Minerals</span><span class="ar">معادن</span></div>
+        <div><i></i><span class="en">Vitamins</span><span class="ar">فيتامينات</span></div>
+        <div><i></i><span class="en">Fibre</span><span class="ar">ألياف</span></div>
+        <div><i></i><span class="en">Antioxidants</span><span class="ar">مضادات أكسدة</span></div>
+        <div><i></i><span class="en">Energy</span><span class="ar">طاقة طبيعية</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="sec band">
+    <div class="wrap">
+      <div class="label"><span class="en">Vision, mission &amp; values</span><span class="ar">الرؤية والرسالة والقيم</span></div>
+      <h2 class="title"><span class="en">Where we are going</span><span class="ar">إلى أين نتجه</span></h2>
+      <div class="vm">
+        <article><h3><span class="en">Our vision</span><span class="ar">رؤيتنا</span></h3><p><span class="en">To make Talmex a leading Egyptian brand of healthy date-based foods, in every Egyptian home and in Arab and international markets.</span><span class="ar">أن تكون تالمكس علامة مصرية رائدة في الأغذية الصحية القائمة على التمور، تصل منتجاتها إلى كل بيت في مصر وإلى الأسواق العربية والدولية.</span></p></article>
+        <article><h3><span class="en">Our mission</span><span class="ar">رسالتنا</span></h3><p><span class="en">To offer healthy, tasty and easy-to-prepare alternatives with high nutritional value at a fair price for everyone, and to help fight malnutrition-related illness.</span><span class="ar">تقديم بدائل غذائية صحية ولذيذة وسهلة التحضير، ذات قيمة غذائية عالية وأسعار مناسبة لمختلف الفئات، والإسهام في الحد من الأمراض المرتبطة بسوء التغذية.</span></p></article>
+        <article><h3><span class="en">What makes us different</span><span class="ar">ما يميزنا</span></h3><ul>
+          <li><span class="en">A wide range of products and flavours</span><span class="ar">تنوّع المنتجات والنكهات</span></li>
+          <li><span class="en">High nutritional value from dates</span><span class="ar">قيمة غذائية عالية من التمر</span></li>
+          <li><span class="en">Quick-to-prepare products</span><span class="ar">منتجات سريعة التحضير</span></li>
+          <li><span class="en">Fair prices for every household</span><span class="ar">أسعار مناسبة لجميع الفئات</span></li>
+          <li><span class="en">Close, ongoing customer care</span><span class="ar">تواصل مستمر وخدمة عملاء متميزة</span></li></ul></article>
+      </div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="label"><span class="en">Our roadmap</span><span class="ar">خطتنا للمستقبل</span></div>
+      <h2 class="title"><span class="en">From launch to export</span><span class="ar">من الانطلاق إلى التصدير</span></h2>
+      <div class="road">
+        <div><div class="yr">2026</div><h4><span class="en">Market launch</span><span class="ar">الانطلاق في السوق</span></h4><ul><li><span class="en">Final products on the market</span><span class="ar">إنتاج المنتجات بصورتها النهائية وطرحها في الأسواق</span></li><li><span class="en">Listening to customer feedback</span><span class="ar">متابعة آراء العملاء</span></li><li><span class="en">Nutrition and health advice</span><span class="ar">تقديم استشارات غذائية وصحية</span></li></ul></div>
+        <div><div class="yr">2026–2027</div><h4><span class="en">Develop &amp; grow</span><span class="ar">التطوير والتوسع</span></h4><ul><li><span class="en">Product development</span><span class="ar">تطوير المنتجات</span></li><li><span class="en">More sales channels</span><span class="ar">زيادة قنوات التوزيع</span></li><li><span class="en">Launching this website</span><span class="ar">إطلاق الموقع الإلكتروني</span></li><li><span class="en">A date cereal for children</span><span class="ar">حبوب إفطار بالتمر للأطفال</span></li></ul></div>
+        <div><div class="yr">2027–2028</div><h4><span class="en">Innovation</span><span class="ar">الابتكار</span></h4><ul><li><span class="en">New products from customer ideas</span><span class="ar">تطوير منتجات جديدة بناءً على مقترحات العملاء</span></li><li><span class="en">Edible coating for fruit and vegetables</span><span class="ar">طبقات تغليف صالحة للأكل للخضر والفاكهة</span></li></ul></div>
+        <div><div class="yr">2028–2030</div><h4><span class="en">Scale &amp; export</span><span class="ar">الانتشار والتصدير</span></h4><ul><li><span class="en">Nationwide reach</span><span class="ar">التوسع في السوق المحلي</span></li><li><span class="en">Exporting to Arab and global markets</span><span class="ar">التصدير إلى الأسواق العربية والعالمية</span></li></ul></div>
+      </div>
+      <div style="margin-top:64px">
+        <div class="label"><span class="en">Who we serve</span><span class="ar">الفئات المستهدفة</span></div>
+        <h2 class="title"><span class="en">For everyone seeking natural energy</span><span class="ar">لكل من يبحث عن طاقة طبيعية</span></h2>
+        <div class="aud">
+          <article><h3><span class="en">Better nutrition</span><span class="ar">مواجهة سوء التغذية</span></h3><p><span class="en">For families, children and women who need a nutritional boost, especially those facing anaemia.</span><span class="ar">للأسر والأطفال والسيدات ممن يحتاجون إلى دعم غذائي، ولا سيما المصابون بفقر الدم.</span></p><div class="t">NUTRIVA · NUTRA</div></article>
+          <article><h3><span class="en">Health-conscious consumers</span><span class="ar">الباحثون عن الغذاء الصحي</span></h3><p><span class="en">For anyone looking for healthier alternatives to everyday snacks, drinks and spreads.</span><span class="ar">لمن يبحثون عن بدائل صحية للوجبات الخفيفة والمشروبات والمعاجين التقليدية.</span></p><div class="t">NUTRA · VELORA · SEMORA</div></article>
+          <article><h3><span class="en">Athletes &amp; students</span><span class="ar">الرياضيون والطلاب</span></h3><p><span class="en">Quick natural energy for athletes, fitness fans, and school and university students.</span><span class="ar">مصدر سريع للطاقة الطبيعية للرياضيين وطلاب المدارس والجامعات.</span></p><div class="t">NUTRIVA · VELORA</div></article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BRANDS ================= -->
+<section class="view" id="v-brands">
+  <div class="wrap pagehead">
+    <div class="label"><b class="num">02</b> <span class="en">Our brands</span><span class="ar">علاماتنا التجارية</span></div>
+    <h2 class="title"><span class="en">Four brands, one heart: dates</span><span class="ar">أربع علامات يجمعها التمر</span></h2>
+    <div class="rule c"><span>✦</span></div>
+  </div>
+  <div class="wrap">
+    <div class="bswitch" role="tablist">
+      <button type="button" role="tab" data-b="b-nv" aria-selected="true"><img src="assets/nutriva-coffee.webp" alt=""><span>NUTRIVA</span></button>
+      <button type="button" role="tab" data-b="b-na" aria-selected="false"><img src="assets/nutra-chocolate.webp" alt=""><span>NUTRA</span></button>
+      <button type="button" role="tab" data-b="b-vl" aria-selected="false"><img src="assets/velora.webp" alt=""><span>VELORA</span></button>
+      <button type="button" role="tab" data-b="b-se" aria-selected="false"><img src="assets/semora.webp" alt=""><span>SEMORA</span></button>
+    </div>
+    <div class="brandrow" id="b-nv">
+      <div class="bt"><div class="bname">NUTRIVA</div><div class="bsub"><span class="en">Instant date drink</span><span class="ar">نيوتريفا · مشروب التمر سريع التحضير</span></div>
+        <p class="muted"><span class="en">A blend of date extract with vitamins and minerals that renews your energy and vitality. Dissolve one sachet in 150 ml of hot water.</span><span class="ar">مزيج من خلاصة التمور بالفيتامينات والمعادن، يجدد النشاط والحيوية. يُذاب محتوى الكيس في ١٥٠ مل من الماء الساخن.</span></p>
+        <div class="flv" data-brand="NUTRIVA"></div><a class="btn btn-dark" href="#shop" data-tab="shop" data-filter="NUTRIVA"><span class="en">Shop NUTRIVA</span><span class="ar">تسوّق نيوتريفا</span></a></div>
+      <div class="bi"><img src="assets/hero-nutriva7.webp" alt="NUTRIVA flavours"></div>
+    </div>
+    <div class="brandrow" id="b-na" hidden>
+      <div class="bt"><div class="bname">NUTRA <span class="new" style="font-size:12px"><span class="en">NEW: HAZELNUT</span><span class="ar">جديد: بندق</span></span></div><div class="bsub"><span class="en">Date spread</span><span class="ar">نوترا · سبريد التمر</span></div>
+        <p class="muted"><span class="en">A silky spread of date paste with chocolate, pistachio or hazelnut. Perfect on bread, pancakes and fruit.</span><span class="ar">سبريد كريمي ناعم يجمع معجون التمر مع الشوكولاتة أو الفستق أو البندق، مثالي على الخبز والفطائر والفاكهة.</span></p>
+        <div class="flv" data-brand="NUTRA"></div><a class="btn btn-dark" href="#shop" data-tab="shop" data-filter="NUTRA"><span class="en">Shop NUTRA</span><span class="ar">تسوّق نوترا</span></a></div>
+      <div class="bi"><div style="display:flex;align-items:flex-end;justify-content:center;gap:4%"><img src="assets/nutra-pistachio.webp" alt="" style="width:30%"><img src="assets/nutra-chocolate.webp" alt="" style="width:36%"><img src="assets/nutra-hazelnut.webp" alt="" style="width:30%"></div></div>
+    </div>
+    <div class="brandrow" id="b-vl" hidden>
+      <div class="bt"><div class="bname">VELORA</div><div class="bsub"><span class="en">Date chocolate</span><span class="ar">فيلورا · شوكولاتة التمر</span></div>
+        <p class="muted"><span class="en">A rich recipe that combines chocolate with date extract: the pleasure of chocolate with the value of dates in every piece. Six flavours: classic, hazelnut, pistachio, white, strawberry and nuts.</span><span class="ar">تركيبة غنية تجمع الشوكولاتة وخلاصة التمور: متعة الشوكولاتة مع قيمة التمر في كل قطعة. ست نكهات: كلاسيك، وبندق، وفستق، وأبيض، وفراولة، ومكسرات.</span></p>
+        <div class="flv" data-brand="VELORA"></div><a class="btn btn-dark" href="#shop" data-tab="shop" data-filter="VELORA"><span class="en">Shop VELORA</span><span class="ar">تسوّق فيلورا</span></a></div>
+      <div class="bi"><img src="assets/hero-velora.webp" alt="VELORA"></div>
+    </div>
+    <div class="brandrow" id="b-se" hidden>
+      <div class="bt"><div class="bname ar-n" lang="ar">سيمورا</div><div class="bname" style="font-size:22px;letter-spacing:.4em;margin-top:6px">SEMORA <span class="new" style="letter-spacing:.06em"><span class="en">NEW</span><span class="ar">جديد</span></span></div><div class="bsub"><span class="en">Fresh date makhtoum</span><span class="ar">مختوم التمر الطازج</span></div>
+        <p class="muted"><span class="en">Fresh date chunks coated in sesame and nuts, in date molasses and bee honey. A traditional sweet with a modern touch.</span><span class="ar">قطع التمر الطازج مغطاة بالسمسم والمكسرات في دبس التمر وعسل النحل. حلوى تقليدية بلمسة عصرية.</span></p>
+        <div class="flv" data-brand="SEMORA"></div><a class="btn btn-dark" href="#shop" data-tab="shop" data-filter="SEMORA"><span class="en">Shop SEMORA</span><span class="ar">تسوّق سيمورا</span></a></div>
+      <div class="bi"><img src="assets/semora.webp" alt="SEMORA"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SHOP ================= -->
+<section class="view" id="v-shop">
+  <div class="wrap pagehead">
+    <div class="label"><b class="num">03</b> <span class="en">Shop</span><span class="ar">المتجر</span></div>
+    <h2 class="title"><span class="en">Shop our products</span><span class="ar">تسوّق منتجاتنا</span></h2>
+    <p class="muted lead"><span class="en">Tap any product for details and ingredients, add it to your cart and send your order on WhatsApp.</span><span class="ar">اضغط على أي منتج لعرض تفاصيله ومكوناته، ثم أضفه إلى السلة وأرسل طلبك عبر واتساب.</span></p>
+  </div>
+  <div class="wrap" style="padding-bottom:40px">
+    <div class="ftabs" role="group" aria-label="Filter">
+      <button class="ftab" type="button" data-f="all" aria-pressed="true"><span class="en">ALL</span><span class="ar">الكل</span></button>
+      <button class="ftab" type="button" data-f="NUTRIVA" aria-pressed="false">NUTRIVA</button>
+      <button class="ftab" type="button" data-f="NUTRA" aria-pressed="false">NUTRA</button>
+      <button class="ftab" type="button" data-f="VELORA" aria-pressed="false">VELORA</button>
+      <button class="ftab" type="button" data-f="SEMORA" aria-pressed="false">SEMORA</button>
+    </div>
+    <div class="howto">
+      <div><b>1</b><span><span class="en">Select your products and add them to the cart</span><span class="ar">اختر المنتجات وأضفها إلى السلة</span></span></div>
+      <div><b>2</b><span><span class="en">Add your name and address, then tap "Send order"</span><span class="ar">أدخل الاسم والعنوان ثم اضغط «أرسل الطلب»</span></span></div>
+      <div><b>3</b><span><span class="en">We contact you on WhatsApp to confirm the order and delivery</span><span class="ar">نتواصل معك عبر واتساب لتأكيد الطلب وموعد التوصيل</span></span></div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="muted" id="sampleNote" style="font-size:14px;margin-top:14px"><span class="en">Indicative prices</span><span class="ar">الأسعار استرشادية</span></p>
+  </div>
+</section>
+
+<!-- ================= SUPPORT ================= -->
+<section class="view" id="v-support">
+  <div class="wrap pagehead">
+    <div class="label"><b class="num">04</b> <span class="en">Partners &amp; support</span><span class="ar">الشركاء والدعم</span></div>
+    <h2 class="title"><span class="en">Our journey</span><span class="ar">مسيرتنا</span></h2>
+    <p class="muted lead"><span class="en">Talmex is one of a group of rural enterprises in Beheira, Kafr El-Sheikh and Aswan that turn local agricultural resources into value-added products and lasting income for their communities.</span><span class="ar">تالمكس واحدة من مجموعة من المشروعات الريفية الجماعية في محافظات البحيرة وكفر الشيخ وأسوان، التي تحوّل الموارد الزراعية المحلية إلى منتجات ذات قيمة مضافة ومصادر دخل مستدامة لمجتمعاتها.</span></p>
+    <div class="rule c"><span>✦</span></div>
+  </div>
+  <div class="sec band">
+    <div class="wrap">
+      <div class="journey">
+        <div><div class="n">01</div><h4><span class="en">Setting up</span><span class="ar">التأسيس</span></h4><p><span class="en">Selected as a group-based enterprise and set up in Abo Shalan.</span><span class="ar">الاختيار كمشروع جماعي والتأسيس في قرية أبو شعلان.</span></p></div>
+        <div><div class="n">02</div><h4><span class="en">Start-up grant</span><span class="ar">منحة البدء</span></h4><p><span class="en">A grant to start operations and equip production.</span><span class="ar">منحة لبدء النشاط وتجهيز خط الإنتاج.</span></p></div>
+        <div><div class="n">03</div><h4><span class="en">Financial training</span><span class="ar">التدريب المالي</span></h4><p><span class="en">Agri-entrepreneurs training in Kafr El-Sheikh (2–4 Dec 2025): costs, pricing and record keeping.</span><span class="ar">البرنامج التدريبي لروّاد الأعمال الزراعيين بكفر الشيخ (٢–٤ ديسمبر ٢٠٢٥): حساب التكاليف والتسعير وإمساك الحسابات.</span></p></div>
+        <div><div class="n">04</div><h4><span class="en">Administrative training</span><span class="ar">التدريب الإداري</span></h4><p><span class="en">Business administration, organisation, planning and formal registration.</span><span class="ar">إدارة المشروع والتنظيم والتخطيط والتسجيل الرسمي.</span></p></div>
+        <div><div class="n">05</div><h4><span class="en">Brand &amp; launch</span><span class="ar">الهوية والانطلاق</span></h4><p><span class="en">Brand identity and packaging, and the World Food Day 2026 exhibition.</span><span class="ar">تطوير الهوية البصرية والعبوات، والمشاركة في معرض يوم الأغذية العالمي ٢٠٢٦.</span></p></div>
+      </div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="label"><span class="en">With the support of</span><span class="ar">بدعم من</span></div>
+      <div class="proj" style="margin-top:14px">
+        <img src="assets/project-logo.webp" alt="Project logo">
+        <div>
+          <div class="pt"><span class="en">Promoting Climate Smart Agriculture and Agricultural Biodiversity for Enhancing the Adaptive Capacity of Vulnerable Rural Communities in Old and New Lands of Upper and Lower Egypt</span><span class="ar">مشروع تعزيز الزراعة الذكية مناخياً والتنوع البيولوجي الزراعي لرفع القدرة على التكيف لدى المجتمعات الريفية الأكثر احتياجاً في الأراضي القديمة والجديدة بصعيد مصر والوجه البحري</span></div>
+          <div class="pm"><span class="en">Implemented by FAO with the Ministry of Agriculture and Land Reclamation, funded by the Government of Canada.</span><span class="ar">تنفذه منظمة الأغذية والزراعة للأمم المتحدة (الفاو) مع وزارة الزراعة واستصلاح الأراضي، بتمويل من حكومة كندا.</span></div>
+        </div>
+      </div>
+      <div style="margin-top:46px">
+        <div class="label"><span class="en">Our partners</span><span class="ar">شركاؤنا</span></div>
+        <h2 class="title" style="font-size:clamp(26px,3vw,34px)"><span class="en">Working together</span><span class="ar">نعمل معاً</span></h2>
+        <div class="partners">
+          <div><b><span class="en">Food Technology Research Institute</span><span class="ar">معهد بحوث تكنولوجيا الأغذية</span></b><span><span class="en">R&amp;D and nutrition advice</span><span class="ar">البحث والتطوير</span></span></div>
+          <div><b><span class="en">Universities &amp; schools</span><span class="ar">الجامعات والمدارس</span></b><span><span class="en">Nutrition awareness</span><span class="ar">التوعية الغذائية</span></span></div>
+          <div><b><span class="en">Sports clubs</span><span class="ar">النوادي الرياضية</span></b><span><span class="en">Natural energy for athletes</span><span class="ar">طاقة طبيعية للرياضيين</span></span></div>
+          <div><b><span class="en">Healthy-food platforms</span><span class="ar">منصات الأغذية الصحية</span></b><span><span class="en">Marketing &amp; distribution</span><span class="ar">التسويق والتوزيع</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEAM ================= -->
+<section class="view" id="v-team">
+  <div class="wrap pagehead">
+    <div class="label"><b class="num">05</b> <span class="en">Our team</span><span class="ar">فريقنا</span></div>
+    <h2 class="title"><span class="en">The Talmex team</span><span class="ar">فريق تالمكس</span></h2>
+    <p class="muted lead"><span class="en">One team across management, quality, production, marketing and customer care.</span><span class="ar">فريق متكامل من الإدارة والجودة والإنتاج والتسويق وخدمة العملاء.</span></p>
+    <div class="rule c"><span>✦</span></div>
+  </div>
+  <div class="wrap" style="padding-bottom:40px">
+    <div class="team">
+      <div class="mem"><div class="av"><span class="en">AR</span><span class="ar">أ</span></div><div class="role"><span class="en">Company Manager</span><span class="ar">مدير الشركة</span></div><div class="nm"><span class="en">Ahmed Ramadan Mohamed</span><span class="ar">أحمد رمضان محمد</span></div></div>
+      <div class="mem"><div class="av"><span class="en">MA</span><span class="ar">م</span></div><div class="role"><span class="en">Quality Engineer</span><span class="ar">مهندس الجودة</span></div><div class="nm"><span class="en">Mohamed Ahmed El-Sayed</span><span class="ar">محمد أحمد السيد</span></div></div>
+      <div class="mem"><div class="av"><span class="en">AM</span><span class="ar">أ</span></div><div class="role"><span class="en">Marketing Manager</span><span class="ar">مديرة التسويق</span></div><div class="nm"><span class="en">Asmaa Mofreh Ibrahim</span><span class="ar">أسماء مفرح إبراهيم</span></div></div>
+      <div class="mem"><div class="av"><span class="en">SS</span><span class="ar">س</span></div><div class="role"><span class="en">Production Engineer</span><span class="ar">مهندسة الإنتاج</span></div><div class="nm"><span class="en">Samar Samir Hamdoun Obaid</span><span class="ar">سمر سمير حمدون عبيد</span></div></div>
+      <div class="mem"><div class="av"><span class="en">MY</span><span class="ar">م</span></div><div class="role"><span class="en">Customer Care</span><span class="ar">خدمة العملاء</span></div><div class="nm"><span class="en">Menna Yassin</span><span class="ar">منة ياسين</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="view" id="v-contact">
+  <div class="wrap pagehead">
+    <div class="label"><b class="num">06</b> <span class="en">Contact</span><span class="ar">تواصل معنا</span></div>
+    <h2 class="title"><span class="en">Get in touch</span><span class="ar">يسعدنا تواصلك</span></h2>
+    <div class="rule c"><span>✦</span></div>
+  </div>
+  <div class="wrap cgrid" style="padding-bottom:40px">
+    <div>
+      <div class="cc"><div><div class="k"><span class="en">WhatsApp &amp; company line</span><span class="ar">واتساب وخط الشركة</span></div><div class="v">015 5318 1943</div></div><button class="copy" type="button" data-copy="01553181943"><span class="en">Copy</span><span class="ar">نسخ</span></button></div>
+      <div class="cc"><div><div class="k"><span class="en">Ahmed Ramadan, Company Manager</span><span class="ar">مدير الشركة: أحمد رمضان</span></div><div class="v">010 9687 0135</div></div><button class="copy" type="button" data-copy="01096870135"><span class="en">Copy</span><span class="ar">نسخ</span></button></div>
+      <div class="cc"><div><div class="k"><span class="en">Email</span><span class="ar">البريد الإلكتروني</span></div><div class="v">talmex.food@gmail.com</div></div><button class="copy" type="button" data-copy="talmex.food@gmail.com"><span class="en">Copy</span><span class="ar">نسخ</span></button></div>
+      <div class="cta">
+        <a class="btn btn-wa" href="https://wa.me/201553181943" target="_blank" rel="noopener"><svg style="fill:currentColor"><use href="#i-wa"/></svg><span class="en">Message us on WhatsApp</span><span class="ar">راسلنا على واتساب</span></a>
+        <a class="btn btn-line" href="https://www.facebook.com/share/18ehJfqFRz/" target="_blank" rel="noopener"><span class="en">Our Facebook page</span><span class="ar">صفحتنا على فيسبوك</span></a>
+      </div>
+    </div>
+    <div class="addr">
+      <h3><span class="en">Find us</span><span class="ar">العنوان</span></h3>
+      <p style="margin:0 0 14px;font-weight:700"><span class="en">Abo Shalan Village, El-Burullus, Kafr El-Sheikh, Egypt</span><span class="ar">قرية أبو شعلان – مركز البرلس – محافظة كفر الشيخ</span></p>
+      <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Abo+Shalan,+El-Burullus,+Kafr+El-Sheikh,+Egypt" target="_blank" rel="noopener"><span class="en">Open in Google Maps</span><span class="ar">افتح على خرائط جوجل</span></a>
+      <h3 style="margin-top:22px"><span class="en">Get the app</span><span class="ar">حمّل التطبيق</span></h3>
+      <p class="muted" style="margin:.2em 0 10px;font-size:15px"><span class="en">Install TALMEX on your phone or computer: it opens in its own window and works offline.</span><span class="ar">ثبّت تالمكس على هاتفك أو حاسوبك: يفتح في نافذة مستقلة ويعمل دون إنترنت.</span></p>
+      <button class="btn btn-dark" id="installBtn2" type="button"><svg><use href="#i-get"/></svg><span class="en">Install app</span><span class="ar">تثبيت التطبيق</span></button>
+      <h3 style="margin-top:22px"><span class="en">Sales &amp; contact channels</span><span class="ar">قنوات البيع والتواصل</span></h3>
+      <div class="chan"><span><span class="en">Website &amp; WhatsApp</span><span class="ar">الموقع وواتساب</span></span><span><span class="en">Facebook</span><span class="ar">فيسبوك</span></span><span><span class="en">Food fairs &amp; events</span><span class="ar">المعارض والفعاليات الغذائية</span></span><span><span class="en">Health-food stores</span><span class="ar">متاجر الأغذية الصحية</span></span><span><span class="en">Sports clubs</span><span class="ar">النوادي الرياضية</span></span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="#home" data-tab="home"><span class="en">Home</span><span class="ar">الرئيسية</span></a>
+      <a href="#story" data-tab="story"><span class="en">Our Story</span><span class="ar">قصتنا</span></a>
+      <a href="#brands" data-tab="brands"><span class="en">Our Brands</span><span class="ar">علاماتنا</span></a>
+      <a href="#shop" data-tab="shop"><span class="en">Shop</span><span class="ar">المتجر</span></a>
+      <a href="#support" data-tab="support"><span class="en">Partners &amp; Support</span><span class="ar">الشركاء والدعم</span></a>
+      <a href="#team" data-tab="team"><span class="en">Team</span><span class="ar">فريقنا</span></a>
+      <a href="#contact" data-tab="contact"><span class="en">Contact</span><span class="ar">تواصل معنا</span></a>
+    </nav>
+    <div><span class="en">© 2026 TALMEX Food Industries · Abo Shalan, El-Burullus, Kafr El-Sheikh · Made in Egypt</span><span class="ar">© ٢٠٢٦ تالمكس للصناعات الغذائية · قرية أبو شعلان، البرلس، كفر الشيخ · صناعة مصرية</span></div>
+  </div>
+</footer>
+
+<div id="appbar">
+  <img src="assets/icon-192.png" alt="">
+  <div class="t"><b><span class="en">Install the TALMEX app</span><span class="ar">ثبّت تطبيق تالمكس</span></b><span class="en">Add it to your home screen – works offline.</span><span class="ar">أضفه إلى شاشتك الرئيسية – يعمل دون إنترنت.</span></div>
+  <button id="appbarGo" type="button"><span class="en">Install</span><span class="ar">تثبيت</span></button>
+  <button class="close" id="appbarX" type="button" aria-label="Close">×</button>
+</div>
+<div id="iosHow"><div class="sheet">
+  <h3 style="font-size:20px"><span class="en">Install on iPhone / iPad</span><span class="ar">التثبيت على آيفون أو آيباد</span></h3>
+  <ol>
+    <li><span class="en">Tap the Share button in Safari.</span><span class="ar">اضغط زر المشاركة في سفاري.</span></li>
+    <li><span class="en">Choose "Add to Home Screen".</span><span class="ar">اختر «إضافة إلى الشاشة الرئيسية».</span></li>
+    <li><span class="en">Tap "Add".</span><span class="ar">اضغط «إضافة».</span></li>
+  </ol>
+  <div class="cta" style="margin-top:16px"><button class="btn btn-dark" id="iosClose" type="button"><span class="en">Got it</span><span class="ar">تمام</span></button></div>
+</div></div>
+<a class="wa-fab" href="https://wa.me/201553181943" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+
+<dialog id="pd">
+  <button class="x" id="pdClose" type="button" aria-label="Close">×</button>
+  <div class="pdw">
+    <div class="pimg"><img id="pdImg" src="" alt=""></div>
+    <div class="ptx">
+      <div class="bn" id="pdBrand">NUTRIVA</div>
+      <h3 id="pdName">Product</h3>
+      <div id="pdAr"></div>
+      <p id="pdDesc" class="muted"></p>
+      <dl class="meta" id="pdMeta"></dl>
+      <div style="font-weight:800;font-size:14px"><span class="en">Size</span><span class="ar">الحجم</span></div>
+      <div class="sizes" id="pdSizes"></div>
+      <div class="qrow">
+        <div class="qty"><button type="button" id="qMinus">−</button><output id="qOut">1</output><button type="button" id="qPlus">+</button></div>
+        <div id="pdPrice"></div>
+        <button class="btn btn-dark" id="pdAdd" type="button" style="margin-inline-start:auto"><svg><use href="#i-cart"/></svg><span class="en">Add to cart</span><span class="ar">أضف إلى السلة</span></button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<div id="shade" hidden></div>
+<aside id="drawer" aria-hidden="true">
+  <div class="dh"><h3><span class="en">Your cart</span><span class="ar">سلة الطلبات</span></h3><button id="drawerClose" type="button" aria-label="Close">×</button></div>
+  <div id="lines"></div>
+  <form class="df" id="orderForm">
+    <div class="tot"><span><span class="en">Total</span><span class="ar">الإجمالي</span></span><span id="total">0</span></div>
+    <input id="cName" autocomplete="name" placeholder="Your name / الاسم">
+    <textarea id="cAddr" rows="2" placeholder="Address / notes · العنوان / ملاحظات"></textarea>
+    <a class="btn btn-wa send" id="sendWa" href="https://wa.me/" target="_blank" rel="noopener" aria-disabled="true"><svg style="fill:currentColor"><use href="#i-wa"/></svg><span class="en">Send order on WhatsApp</span><span class="ar">أرسل الطلب عبر واتساب</span></a>
+    <small><span class="en">WhatsApp opens with your order written out. We will reply to confirm the order and arrange delivery.</span><span class="ar">سيُفتح واتساب برسالة تتضمن طلبك، وسنتواصل معك لتأكيد الطلب وترتيب التوصيل.</span></small>
+  </form>
+</aside>
+<div id="toast" hidden></div>
+
+<script>
+(function(){
+var SAMPLE_PRICES = false;
+var PRICES = {
+  "nv-30": 18,
+  "na-ch-125": 89,  "na-ch-250": 165,
+  "na-ps-125": 185, "na-ps-250": 349,
+  "na-hz-125": 95,  "na-hz-250": 175,
+  "se-125": 79,     "se-250": 149,
+  "vl-20": 16, "vl-30": 24, "vl-50": 39
+};
+var WA = "201553181943";
+
+var NV_USE_AR = "يُذاب محتوى الكيس في ١٥٠ مل ماء ساخن ويُقلّب جيداً.";
+var NV_USE_EN = "Dissolve one sachet in 150 ml of hot water and stir well.";
+var NV_BRAND_AR = "مزيج من خلاصة التمور بالفيتامينات والمعادن، يجدد النشاط والحيوية.";
+var NV_BRAND_EN = "A blend of date extract with vitamins and minerals that renews your energy and vitality.";
+var KEEP_AR = "يُحفظ في مكان بارد وجاف ويُغلق جيداً بعد الاستخدام.", KEEP_EN = "Keep cool and dry; close tightly after use.";
+var NA_SIZES = function(k){return [{k:"125",label:"125 g",pk:"na-"+k+"-125"},{k:"250",label:"250 g",pk:"na-"+k+"-250"}]};
+var VL_SIZES = [{k:"20",label:"20 g",pk:"vl-20"},{k:"30",label:"30 g",pk:"vl-30"},{k:"50",label:"50 g",pk:"vl-50"}];
+function nv(k, ar, en, d_ar, d_en, ing_ar, ing_en, al_ar, al_en){
+  return {id:"nv-"+k, brand:"NUTRIVA", img:"assets/nutriva-"+k+".webp",
+    ar:"نيوتريفا "+ar, en:"NUTRIVA "+en, chip_ar:ar, chip_en:en, short_ar:d_ar, short_en:d_en,
+    desc_ar:d_ar+" "+NV_BRAND_AR, desc_en:d_en+" "+NV_BRAND_EN,
+    ing_ar:ing_ar, ing_en:ing_en, al_ar:al_ar, al_en:al_en, use_ar:NV_USE_AR, use_en:NV_USE_EN,
+    sizes:[{k:"30", label:"30 g", pk:"nv-30"}]};
+}
+function vl(k, ar, en, d_ar, d_en, ing_ar, ing_en, al_ar, al_en, isNew){
+  return {id:"vl-"+k, brand:"VELORA", img:"assets/velora-"+k+".webp", isNew:isNew,
+    ar:"فيلورا "+ar, en:"VELORA "+en, chip_ar:ar, chip_en:en, short_ar:d_ar, short_en:d_en,
+    desc_ar:d_ar+" تركيبة غنية تجمع الشوكولاتة وخلاصة التمور في كل قطعة.", desc_en:d_en+" A rich recipe of chocolate and date extract in every piece.",
+    ing_ar:ing_ar, ing_en:ing_en, al_ar:al_ar, al_en:al_en,
+    use_ar:"يُحفظ في مكان بارد وجاف بعيداً عن الحرارة.", use_en:"Keep cool and dry, away from heat.", sizes:VL_SIZES};
+}
+var P = [
+  nv("pure","سادة","Pure","حلاوة التمر الطبيعية دون إضافات.","Naturally sweet from dates, nothing added.","لبن بودرة، بودرة تمر.","Milk powder, date powder.","لبن","Milk"),
+  nv("coffee","قهوة","Coffee","أصالة القهوة بلمسة صحية لبداية يومك.","Authentic coffee with a healthy touch to start your day.","لبن بودرة، بودرة تمر، قهوة سريعة الذوبان.","Milk powder, date powder, instant coffee.","لبن","Milk"),
+  nv("vanilla","فانيليا","Vanilla","نعومة الفانيليا مع حلاوة التمر الطبيعية.","Smooth vanilla with the natural sweetness of dates.","لبن بودرة، بودرة تمر، قهوة سريعة الذوبان، نكهة فانيليا.","Milk powder, date powder, instant coffee, vanilla flavouring.","لبن","Milk"),
+  nv("hazelnut","بندق","Hazelnut","سحر البندق بمذاق كريمي ليوم صحي.","Creamy hazelnut magic for a healthy day.","لبن بودرة، بودرة تمر، نكهة بندق.","Milk powder, date powder, hazelnut flavouring.","لبن","Milk"),
+  nv("caramel","كراميل","Caramel","كراميل غني يضيف لحظات استثنائية.","Rich caramel for exceptional moments.","لبن بودرة، بودرة تمر، نكهة كراميل.","Milk powder, date powder, caramel flavouring.","لبن","Milk"),
+  nv("pistachio","فستق","Pistachio","رقي الفستق مع حلاوة التمر الطبيعية.","Refined pistachio meets natural date sweetness.","لبن بودرة، بودرة تمر، نكهة فستق.","Milk powder, date powder, pistachio flavouring.","لبن","Milk"),
+  nv("lactosefree","خالي من اللاكتوز","Lactose Free","بديل صحي خالٍ من اللاكتوز للنشاط والحيوية.","A healthy lactose-free alternative for energy and vitality.","كريمر نباتي غير ألبان، بودرة تمر.","Non-dairy creamer, date powder.","لا يحتوي على لاكتوز، قد يحتوي على آثار من بروتين اللبن","No lactose; may contain traces of milk protein"),
+  {id:"na-ch", brand:"NUTRA", img:"assets/nutra-chocolate.webp", ar:"نوترا سبريد التمر بالشوكولاتة", en:"NUTRA Date & Chocolate Spread", chip_ar:"شوكولاتة", chip_en:"Chocolate",
+   short_ar:"قوام كريمي ناعم يجمع الشيكولاتة ومستخلص التمور.", short_en:"Silky, creamy chocolate with date extract.",
+   desc_ar:"يجمع فوائد الشيكولاتة ومستخلص التمور لتقديم بديل صحي يمد الجسم بالحيوية والنشاط. مثالي على الخبز والبان كيك والفاكهة.", desc_en:"Combines the benefits of chocolate and date extract in a healthier spread that keeps you energised. Perfect on bread, pancakes and fruit.",
+   ing_ar:"معجون تمر (٦٠٪)، شوكولاتة خام (٤٠٪).", ing_en:"Date paste (60%), raw chocolate (40%).", al_ar:"قد يحتوي على آثار من لبن، صويا، مكسرات", al_en:"May contain traces of milk, soy, nuts",
+   use_ar:KEEP_AR, use_en:KEEP_EN, sizes:NA_SIZES("ch")},
+  {id:"na-hz", brand:"NUTRA", img:"assets/nutra-hazelnut.webp", isNew:true, ar:"نوترا سبريد التمر بالبندق", en:"NUTRA Date & Hazelnut Spread", chip_ar:"بندق", chip_en:"Hazelnut",
+   short_ar:"نعومة البندق مع حلاوة التمر.. طاقة في كل ملعقة.", short_en:"Smooth hazelnut with the sweetness of dates.",
+   desc_ar:"سبريد كريمي يجمع معجون التمر مع البندق والشوكولاتة. مثالي على الخبز والبان كيك والفاكهة.", desc_en:"A creamy spread of date paste with hazelnut and chocolate. Perfect on bread, pancakes and fruit.",
+   ing_ar:"معجون تمر، بندق، شوكولاتة.", ing_en:"Date paste, hazelnut, chocolate.", al_ar:"يحتوي على بندق (مكسرات). قد يحتوي على آثار من لبن، صويا", al_en:"Contains hazelnut (tree nuts). May contain traces of milk, soy",
+   use_ar:KEEP_AR, use_en:KEEP_EN, sizes:NA_SIZES("hz")},
+  {id:"na-ps", brand:"NUTRA", img:"assets/nutra-pistachio.webp", ar:"نوترا سبريد التمر بالفستق", en:"NUTRA Date & Pistachio Spread", chip_ar:"فستق", chip_en:"Pistachio",
+   short_ar:"حلاوة التمر مع مذاق الفستق الراقي، وطاقة في كل ملعقة.", short_en:"Date sweetness with refined pistachio.",
+   desc_ar:"سبريد كريمي يجمع حلاوة التمر الطبيعية مع طعم الفستق الراقي، بديل صحي ومصدر طبيعي للطاقة.", desc_en:"A creamy spread that pairs the natural sweetness of dates with refined pistachio: a healthier treat and a natural source of energy.",
+   ing_ar:"معجون تمر، فستق، شوكولاتة.", ing_en:"Date paste, pistachio, chocolate.", al_ar:"يحتوي على فستق (مكسرات). قد يحتوي على آثار من لبن، صويا", al_en:"Contains pistachio (tree nuts). May contain traces of milk, soy",
+   use_ar:KEEP_AR, use_en:KEEP_EN, sizes:NA_SIZES("ps")},
+  vl("classic","كلاسيك","Classic","الطعم الأصلي: شوكولاتة غنية بقلب من التمر.","The original: rich chocolate with a heart of dates.","شوكولاتة خام، تمر.","Raw chocolate, dates.","قد يحتوي على آثار من لبن، صويا، مكسرات","May contain traces of milk, soy, nuts",false),
+  vl("hazelnut","بندق","Hazelnut","شوكولاتة التمر مع قرمشة البندق.","Date chocolate with the crunch of hazelnut.","شوكولاتة خام، تمر، بندق.","Raw chocolate, dates, hazelnut.","يحتوي على بندق (مكسرات). قد يحتوي على آثار من لبن، صويا","Contains hazelnut (tree nuts). May contain traces of milk, soy",true),
+  vl("pistachio","فستق","Pistachio","شوكولاتة التمر مع لمسة الفستق.","Date chocolate with a touch of pistachio.","شوكولاتة خام، تمر، فستق.","Raw chocolate, dates, pistachio.","يحتوي على فستق (مكسرات). قد يحتوي على آثار من لبن، صويا","Contains pistachio (tree nuts). May contain traces of milk, soy",true),
+  vl("white","أبيض","White","شوكولاتة بيضاء ناعمة مع التمر.","Smooth white chocolate with dates.","شوكولاتة بيضاء، تمر.","White chocolate, dates.","يحتوي على لبن. قد يحتوي على آثار من صويا، مكسرات","Contains milk. May contain traces of soy, nuts",true),
+  vl("strawberry","فراولة","Strawberry","شوكولاتة التمر بنكهة الفراولة.","Date chocolate with strawberry flavour.","شوكولاتة، تمر، نكهة فراولة.","Chocolate, dates, strawberry flavouring.","قد يحتوي على آثار من لبن، صويا، مكسرات","May contain traces of milk, soy, nuts",true),
+  vl("nuts","مكسرات","Nuts","شوكولاتة التمر مع مزيج المكسرات.","Date chocolate with mixed nuts.","شوكولاتة خام، تمر، مكسرات مشكلة.","Raw chocolate, dates, mixed nuts.","يحتوي على مكسرات. قد يحتوي على آثار من لبن، صويا","Contains tree nuts. May contain traces of milk, soy",true),
+  {id:"se", brand:"SEMORA", img:"assets/semora.webp", isNew:true, ar:"سيمورا مختوم التمر الطازج", en:"SEMORA Fresh Date Makhtoum", chip_ar:"مختوم", chip_en:"Makhtoum",
+   short_ar:"قطع التمر الطازج بالسمسم والمكسرات في دبس التمر وعسل النحل.", short_en:"Fresh date chunks with sesame and nuts in date molasses and honey.",
+   desc_ar:"قطع التمر الطازج مغطاة بالسمسم والمكسرات في دبس التمر وعسل النحل. تحلية تقليدية بلمسة عصرية، مع الشاي أو كوجبة خفيفة.", desc_en:"Fresh date chunks coated in sesame and nuts, in date molasses and bee honey. A traditional sweet with a modern touch, with tea or as a snack.",
+   ing_ar:"تمر طازج، تمر مطحون، دبس تمر، عسل نحل، سمسم، حبة البركة، زيت زيتون، لوز، عين جمل، كاجو، بندق، فول سوداني، زبيب.", ing_en:"Fresh dates, ground dates, date molasses, bee honey, sesame, black seed, olive oil, almonds, walnuts, cashews, hazelnuts, peanuts, raisins.",
+   al_ar:"يحتوي على مكسرات، فول سوداني، سمسم.", al_en:"Contains tree nuts, peanuts, sesame.",
+   use_ar:"يُحفظ في مكان بارد وجاف، ويُغلق جيداً بعد الفتح.", use_en:"Keep cool and dry; close tightly after opening.",
+   sizes:[{k:"125",label:"125 g",pk:"se-125"},{k:"250",label:"250 g",pk:"se-250"}]}
+];
+
+var byId={};P.forEach(function(p){byId[p.id]=p});
+
+
+var root=document.documentElement;
+function L(){return root.getAttribute("data-lang")||"en"}
+function money(n){return L()==="ar"?(n.toLocaleString("ar-EG")+" ج.م"):("EGP "+n)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function from(p){return Math.min.apply(null,p.sizes.map(function(s){return PRICES[s.pk]||0}))}
+
+/* ---------- one page + tab navigation (scrollspy) ---------- */
+var TABS=["home","story","brands","shop","support","team","contact"];
+function go(t){var el=document.getElementById("v-"+t);if(!el)return;document.getElementById("tabs").classList.remove("on");document.getElementById("menuBtn").setAttribute("aria-expanded","false");
+  window.scrollTo({top:t==="home"?0:el.getBoundingClientRect().top+window.scrollY-74,behavior:"smooth"})}
+document.addEventListener("click",function(e){
+  var a=e.target.closest("[data-tab]");if(!a)return;e.preventDefault();
+  var t=a.getAttribute("data-tab"),f=a.getAttribute("data-filter");if(f)setFilter(f);
+  try{history.replaceState(null,"","#"+t)}catch(_){}go(t);
+});
+document.getElementById("menuBtn").addEventListener("click",function(){var n=document.getElementById("tabs"),on=!n.classList.contains("on");n.classList.toggle("on",on);this.setAttribute("aria-expanded",String(on))});
+function spy(){
+  var y=window.scrollY+140,curT="home";
+  TABS.forEach(function(t){var el=document.getElementById("v-"+t);if(el&&el.offsetTop<=y)curT=t});
+  if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4)curT="contact";
+  document.querySelectorAll("#tabs a").forEach(function(a){if(a.getAttribute("data-tab")===curT)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+  var h=document.body.scrollHeight-window.innerHeight;document.getElementById("prog").style.width=(h>0?window.scrollY/h*100:0)+"%";
+}
+var st;window.addEventListener("scroll",function(){spy();clearTimeout(st);st=setTimeout(spy,120)},{passive:true});
+/* brand switcher */
+document.querySelectorAll(".bswitch button").forEach(function(b){b.addEventListener("click",function(){
+  document.querySelectorAll(".bswitch button").forEach(function(o){o.setAttribute("aria-selected",String(o===b))});
+  document.querySelectorAll(".brandrow").forEach(function(r){r.hidden=r.id!==b.getAttribute("data-b")});
+})});
+/* one-time reveal */
+(function(){
+  var sel=".pagehead,.hero > div,.stats,.bswitch,.two > *,.vm article,.road > div,.aud article,.howto,.journey > div,.proj,.partners > div,.team .mem,.cc,.addr";
+  var els=document.querySelectorAll(sel);
+  if(!("IntersectionObserver" in window))return;
+  els.forEach(function(e){e.classList.add("reveal")});
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target)}})},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+})();
+
+/* ---------- language ---------- */
+function setLang(l){root.setAttribute("data-lang",l);document.getElementById("statN").textContent=l==="ar"?P.length.toLocaleString("ar-EG"):P.length;root.setAttribute("lang",l);root.setAttribute("dir",l==="ar"?"rtl":"ltr");try{localStorage.setItem("talmex-lang",l)}catch(e){}renderGrid();renderFlv();renderCart();if(cur)fillDialog()}
+document.getElementById("langBtn").addEventListener("click",function(){setLang(L()==="ar"?"en":"ar")});
+if(!SAMPLE_PRICES)document.getElementById("sampleNote").hidden=true;
+
+function renderFlv(){
+  var ar=L()==="ar";
+  document.querySelectorAll(".flv[data-brand]").forEach(function(box){var b=box.getAttribute("data-brand");
+    box.innerHTML=P.filter(function(p){return p.brand===b}).map(function(p){return '<button type="button" data-goto="'+p.id+'">'+esc(ar?p.chip_ar:p.chip_en)+'</button>'}).join("")});
+}
+document.addEventListener("click",function(e){var g=e.target.closest("[data-goto]");if(g)openDialog(g.getAttribute("data-goto"))});
+
+/* ---------- product cards ---------- */
+function cardHTML(p,ar){
+  var many=p.sizes.length>1;
+  return '<article class="card"><button class="open" type="button" data-open="'+p.id+'" aria-label="'+esc(ar?p.ar:p.en)+'">'+
+    '<div class="pic">'+(p.isNew?'<span class="new">'+(ar?"جديد":"NEW")+'</span>':'')+'<img src="'+p.img+'" alt="'+esc(p.en)+'" loading="lazy"></div>'+
+    '<div class="body"><div class="bn">'+p.brand+'</div><div class="pn">'+esc(ar?p.ar:p.en)+'</div>'+
+    '<div class="pd">'+esc(ar?p.short_ar:p.short_en)+'</div><div class="more">'+(ar?"عرض التفاصيل":"View details")+'</div></div></button>'+
+    '<div class="foot2"><div class="price">'+(many?'<small>'+(ar?"يبدأ من ":"from ")+'</small>':'')+money(from(p))+'</div>'+
+    '<button class="add" type="button" data-add="'+p.id+'"><svg><use href="#i-cart"/></svg>'+(ar?"أضف":"Add")+'</button></div></article>';
+}
+var filter="all",grid=document.getElementById("grid");
+function setFilter(v){filter=v;document.querySelectorAll(".ftab").forEach(function(o){o.setAttribute("aria-pressed",String(o.getAttribute("data-f")===v))});renderGrid()}
+function renderGrid(){var ar=L()==="ar";grid.innerHTML=P.filter(function(p){return filter==="all"||p.brand===filter}).map(function(p){return cardHTML(p,ar)}).join("")}
+
+document.querySelectorAll(".ftab").forEach(function(t){t.addEventListener("click",function(){setFilter(t.getAttribute("data-f"))})});
+document.addEventListener("click",function(e){
+  if(!e.target.closest(".grid"))return;
+  var o=e.target.closest("[data-open]"),a=e.target.closest("[data-add]");
+  if(a){var p=byId[a.getAttribute("data-add")];if(p.sizes.length>1){openDialog(p.id)}else{addToCart(p.sizes[0].pk,p.id,p.sizes[0].label,1)}return}
+  if(o)openDialog(o.getAttribute("data-open"));
+});
+
+/* ---------- product dialog ---------- */
+var dlg=document.getElementById("pd"),cur=null,curSize=null,q=1;
+function openDialog(id){cur=byId[id];curSize=cur.sizes[cur.sizes.length-1];q=1;fillDialog();if(dlg.showModal)dlg.showModal();else dlg.setAttribute("open","")}
+function fillDialog(){
+  var p=cur,ar=L()==="ar";
+  document.getElementById("pdImg").src=p.img;document.getElementById("pdImg").alt=p.en;
+  document.getElementById("pdBrand").textContent=p.brand;
+  document.getElementById("pdName").textContent=ar?p.ar:p.en;
+  document.getElementById("pdAr").textContent=ar?"":p.ar;
+  document.getElementById("pdDesc").textContent=ar?p.desc_ar:p.desc_en;
+  var rows=ar?[["المكونات",p.ing_ar],["الحساسية",p.al_ar],["طريقة الاستخدام",p.use_ar],["الصلاحية","١٢ شهراً من تاريخ الإنتاج"]]
+             :[["Ingredients",p.ing_en],["Allergens",p.al_en],["How to use",p.use_en],["Shelf life","12 months from production"]];
+  document.getElementById("pdMeta").innerHTML=rows.map(function(r){return '<div><dt>'+r[0]+'</dt><dd>'+esc(r[1])+'</dd></div>'}).join("");
+  document.getElementById("pdSizes").innerHTML=p.sizes.map(function(s){return '<button type="button" data-s="'+s.k+'" aria-pressed="'+(s===curSize)+'">'+s.label+'</button>'}).join("");
+  document.getElementById("pdPrice").textContent=money((PRICES[curSize.pk]||0)*q);
+  document.getElementById("qOut").textContent=q;
+}
+document.getElementById("pdSizes").addEventListener("click",function(e){var b=e.target.closest("[data-s]");if(!b)return;cur.sizes.forEach(function(s){if(s.k===b.getAttribute("data-s"))curSize=s});fillDialog()});
+document.getElementById("qMinus").addEventListener("click",function(){q=Math.max(1,q-1);fillDialog()});
+document.getElementById("qPlus").addEventListener("click",function(){q=Math.min(99,q+1);fillDialog()});
+document.getElementById("pdAdd").addEventListener("click",function(){addToCart(curSize.pk,cur.id,curSize.label,q);closeDialog()});
+function closeDialog(){if(dlg.close)dlg.close();else dlg.removeAttribute("open");cur=null}
+document.getElementById("pdClose").addEventListener("click",closeDialog);
+dlg.addEventListener("click",function(e){if(e.target===dlg)closeDialog()});
+dlg.addEventListener("close",function(){cur=null});
+
+/* ---------- cart ---------- */
+var cart=[];try{cart=JSON.parse(localStorage.getItem("talmex-cart")||"[]")||[]}catch(e){cart=[]}
+cart=cart.filter(function(c){return byId[c.id]&&PRICES[c.pk]!==undefined});
+function save(){try{localStorage.setItem("talmex-cart",JSON.stringify(cart))}catch(e){}}
+function addToCart(pk,id,label,n){
+  var line=cart.filter(function(c){return c.pk===pk&&c.id===id})[0];
+  if(line)line.q=Math.min(99,line.q+n);else cart.push({pk:pk,id:id,label:label,q:n});
+  save();renderCart();toastMsg(L()==="ar"?"تمت الإضافة إلى السلة":"Added to cart");
+}
+var lines=document.getElementById("lines"),totalEl=document.getElementById("total"),nEl=document.getElementById("cartN"),send=document.getElementById("sendWa");
+function renderCart(){
+  var ar=L()==="ar",tot=0,count=0;
+  if(!cart.length){lines.innerHTML='<div class="empty">'+(ar?"السلة فارغة. اختر منتجاتك من المتجر.":"Your cart is empty. Pick something from the shop.")+'</div>'}
+  else lines.innerHTML=cart.map(function(c,i){var p=byId[c.id];var pr=(PRICES[c.pk]||0)*c.q;tot+=pr;count+=c.q;
+    return '<div class="line"><img src="'+p.img+'" alt=""><div><div class="t">'+esc(ar?p.ar:p.en)+'</div><div class="s">'+c.label+' · '+money(PRICES[c.pk]||0)+'</div>'+
+      '<button class="rm" type="button" data-rm="'+i+'">'+(ar?"حذف":"Remove")+'</button></div>'+
+      '<div style="display:grid;gap:4px;justify-items:end"><div class="qty"><button type="button" data-dec="'+i+'" aria-label="Less">−</button><output>'+c.q+'</output><button type="button" data-inc="'+i+'" aria-label="More">+</button></div><b style="font-variant-numeric:tabular-nums">'+money(pr)+'</b></div></div>'}).join("");
+  totalEl.textContent=money(tot);nEl.textContent=count;nEl.hidden=!count;
+  send.setAttribute("aria-disabled",String(!cart.length));updateLink();
+}
+lines.addEventListener("click",function(e){var t=e.target.closest("button");if(!t)return;
+  if(t.dataset.rm!==undefined)cart.splice(+t.dataset.rm,1);
+  else if(t.dataset.inc!==undefined)cart[+t.dataset.inc].q=Math.min(99,cart[+t.dataset.inc].q+1);
+  else if(t.dataset.dec!==undefined){var c=cart[+t.dataset.dec];c.q--;if(c.q<1)cart.splice(+t.dataset.dec,1)}
+  save();renderCart()});
+function updateLink(){
+  var ar=L()==="ar",tot=0,msg=[ar?"مرحباً تالمكس، أود طلب:":"Hello Talmex, I'd like to order:",""];
+  cart.forEach(function(c){var p=byId[c.id],pr=(PRICES[c.pk]||0)*c.q;tot+=pr;msg.push("• "+(ar?p.ar:p.en)+" ("+c.label+") × "+c.q+" = "+money(pr))});
+  msg.push("",(ar?"الإجمالي: ":"Total: ")+money(tot));
+  var n=document.getElementById("cName").value.trim(),a=document.getElementById("cAddr").value.trim();
+  if(n)msg.push((ar?"الاسم: ":"Name: ")+n);if(a)msg.push((ar?"العنوان/ملاحظات: ":"Address/notes: ")+a);
+  send.href="https://wa.me/"+WA+"?text="+encodeURIComponent(msg.join("\n"));
+}
+document.getElementById("cName").addEventListener("input",updateLink);
+document.getElementById("cAddr").addEventListener("input",updateLink);
+document.getElementById("orderForm").addEventListener("submit",function(e){e.preventDefault()});
+var drawer=document.getElementById("drawer"),shade=document.getElementById("shade");
+function openCart(){drawer.classList.add("on");drawer.setAttribute("aria-hidden","false");shade.hidden=false}
+function closeCart(){drawer.classList.remove("on");drawer.setAttribute("aria-hidden","true");shade.hidden=true}
+document.getElementById("cartBtn").addEventListener("click",openCart);
+document.getElementById("drawerClose").addEventListener("click",closeCart);
+shade.addEventListener("click",closeCart);
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeCart()});
+
+var toast=document.getElementById("toast"),tt;
+function toastMsg(m){toast.textContent=m;toast.hidden=false;clearTimeout(tt);tt=setTimeout(function(){toast.hidden=true},1800)}
+document.querySelectorAll(".copy").forEach(function(b){b.addEventListener("click",function(){
+  var t=b.getAttribute("data-copy"),ar=L()==="ar";
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toastMsg(ar?"تم النسخ":"Copied")},function(){toastMsg(t)})}else toastMsg(t);
+})});
+
+var saved=null;try{saved=localStorage.getItem("talmex-lang")}catch(e){}
+setLang(saved==="ar"?"ar":"en");
+
+/* ---------- install as an app (PWA) ---------- */
+if("serviceWorker" in navigator&&location.protocol!=="file:"){
+  window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});
+}
+(function(){
+  var prompt_=null,bar=document.getElementById("appbar"),b1=document.getElementById("installBtn"),b2=document.getElementById("installBtn2"),ios=document.getElementById("iosHow");
+  var standalone=window.matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+  var isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream;
+  function dismissed(){try{return localStorage.getItem("talmex-app-hide")==="1"}catch(e){return false}}
+  function show(){ if(standalone)return; b1.hidden=false; if(!dismissed())setTimeout(function(){bar.classList.add("on")},2500) }
+  window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();prompt_=e;show()});
+  if(isIOS&&!standalone)show();
+  function go(){
+    if(prompt_){prompt_.prompt();prompt_.userChoice.then(function(c){if(c.outcome==="accepted"){bar.classList.remove("on");b1.hidden=true}prompt_=null})}
+    else if(isIOS){ios.classList.add("on")}
+    else{toastMsg(L()==="ar"?"افتح قائمة المتصفح ثم «تثبيت التطبيق»":"Open the browser menu, then \u201cInstall app\u201d")}
+  }
+  b1.addEventListener("click",go); if(b2)b2.addEventListener("click",go);
+  document.getElementById("appbarGo").addEventListener("click",go);
+  document.getElementById("appbarX").addEventListener("click",function(){bar.classList.remove("on");try{localStorage.setItem("talmex-app-hide","1")}catch(e){}});
+  document.getElementById("iosClose").addEventListener("click",function(){ios.classList.remove("on")});
+  ios.addEventListener("click",function(e){if(e.target===ios)ios.classList.remove("on")});
+  window.addEventListener("appinstalled",function(){bar.classList.remove("on");b1.hidden=true;toastMsg(L()==="ar"?"تم تثبيت التطبيق":"App installed")});
+  if(standalone&&b2)b2.closest(".addr")&&(b2.textContent="");
+})();
+spy();var h0=location.hash.slice(1);if(TABS.indexOf(h0)>0)setTimeout(function(){go(h0)},300);
+})();
+</script>
+</body>
+</html>
